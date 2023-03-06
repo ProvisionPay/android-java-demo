@@ -1,7 +1,4 @@
 package com.example.myapplication;
-
-
-
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
 import android.content.Intent;
@@ -18,8 +15,6 @@ import com.provisionpay.android.deeplinksdk.model.Transaction;
 import java.util.function.Function;
 
 public class MainActivity extends AppCompatActivity {
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

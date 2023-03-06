@@ -10,8 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import com.example.myapplication.DeeplinkApi;
-import com.example.myapplication.IDeepLinkHostListener;
+
 import com.example.myapplication.R;
 import com.provisionpay.android.deeplinksdk.SoftposDeeplinkSdk;
 import com.provisionpay.android.deeplinksdk.SoftposDeeplinkSdkListener;
@@ -42,24 +41,14 @@ public class PaymentFragment extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         paymentButton = view.findViewById(R.id.payment);
-        amount = view.findViewById(R.id.getAmount);
         SoftposDeeplinkSdk.Companion.initialize(new InitializeConfig("your_privateKey",requireActivity(),"softpos_url"));
         SoftposDeeplinkSdk.Companion.setDebugMode(true);
 
         paymentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new DeeplinkApi(new IDeepLinkHostListener() {
-                    @Override
-                    public void onCallSoftPosEvent(String paymentSessionToken) {
-                        SoftposDeeplinkSdk.Companion.startPayment(paymentSessionToken,"your_softposUrl");
-                    }
+            SoftposDeeplinkSdk.Companion.startPayment("your_paymentSessionToken","your_softposUrl");
 
-                    @Override
-                    public void onError(String error) {
-                       
-                    }
-                }).callAuthenticateAndCreatePaymentSessionService();
             }
         });
       SoftposDeeplinkSdk.Companion.subscribe(new SoftposDeeplinkSdkListener() {
