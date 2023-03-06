@@ -23,7 +23,6 @@ import com.provisionpay.android.deeplinksdk.model.Transaction;
 
 public class PaymentFragment extends Fragment{
    public Button paymentButton;
-   public EditText amount;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
