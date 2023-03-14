@@ -3,36 +3,29 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.example.mypaplication"
+        applicationId "com.provisionpay.javademo"
         minSdkVersion 23
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
-    flavorDimensions "bank"
-    productFlavors {
-        provision {
-            dimension "bank"
-            manifestPlaceholders = [deepLinkHost: "provisionpay.com", deepLinkPathPrefix: "/receipt"]
-            versionName "1.0.0"
+    signingConfigs {
+        config {
+            keyAlias 'javademo'
+            keyPassword 'Panda1881'
+            storeFile file('../keys/keys.jks')
+            storePassword 'Panda1881'
+            v1SigningEnabled true
+            v2SigningEnabled true
         }
     }
-    flavorDimensions "bank"
 
-    productFlavors {
-        provision {
-            dimension "bank"
-            manifestPlaceholders = [deepLinkHost: "provisionpay.com", deepLinkPathPrefix: "/receipt"]
-            versionName "1.0.0"
-        }
-    }
     buildTypes {
         release {
             minifyEnabled false

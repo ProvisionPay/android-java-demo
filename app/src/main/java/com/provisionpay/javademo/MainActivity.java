@@ -1,16 +1,9 @@
-package com.example.myapplication;
+package com.provisionpay.javademo;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.myapplication.R;
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.example.myapplication.fragment.PaymentFragment;
 import com.provisionpay.android.deeplinksdk.SoftposDeeplinkSdk;
-import com.provisionpay.android.deeplinksdk.SoftposDeeplinkSdkListener;
-import com.provisionpay.android.deeplinksdk.model.IntentDataError;
-import com.provisionpay.android.deeplinksdk.model.PaymentFailedResult;
-import com.provisionpay.android.deeplinksdk.model.SoftposErrorType;
-import com.provisionpay.android.deeplinksdk.model.Transaction;
+import com.provisionpay.javademo.fragment.PaymentFragment;
 
 import java.util.function.Function;
 

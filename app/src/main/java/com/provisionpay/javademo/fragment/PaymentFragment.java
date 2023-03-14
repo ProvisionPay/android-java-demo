@@ -1,5 +1,4 @@
-package com.example.myapplication.fragment;
-
+package com.provisionpay.javademo.fragment;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.example.myapplication.R;
 import com.provisionpay.android.deeplinksdk.SoftposDeeplinkSdk;
 import com.provisionpay.android.deeplinksdk.SoftposDeeplinkSdkListener;
 import com.provisionpay.android.deeplinksdk.broadcastReceiver.BroadcastReceiverListener;
@@ -20,6 +17,7 @@ import com.provisionpay.android.deeplinksdk.model.IntentDataError;
 import com.provisionpay.android.deeplinksdk.model.PaymentFailedResult;
 import com.provisionpay.android.deeplinksdk.model.SoftposErrorType;
 import com.provisionpay.android.deeplinksdk.model.Transaction;
+import com.provisionpay.javademo.R;
 
 public class PaymentFragment extends Fragment{
    public Button paymentButton;
