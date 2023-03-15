@@ -18,9 +18,9 @@ android {
     signingConfigs {
         config {
             keyAlias 'javademo'
-            keyPassword 'Panda1881'
+            keyPassword 'javademo'
             storeFile file('../keys/keys.jks')
-            storePassword 'Panda1881'
+            storePassword 'javademo'
             v1SigningEnabled true
             v2SigningEnabled true
         }
