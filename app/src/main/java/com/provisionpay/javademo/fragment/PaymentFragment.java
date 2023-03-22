@@ -4,6 +4,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import com.provisionpay.android.deeplinksdk.model.PaymentFailedResult;
 import com.provisionpay.android.deeplinksdk.model.SoftposErrorType;
 import com.provisionpay.android.deeplinksdk.model.Transaction;
 import com.provisionpay.javademo.R;
+import com.provisionpay.javademo.receipt.ReceiptFragment;
 
 public class PaymentFragment extends Fragment{
    public Button paymentButton;
@@ -51,37 +54,39 @@ public class PaymentFragment extends Fragment{
       SoftposDeeplinkSdk.Companion.subscribe(new SoftposDeeplinkSdkListener() {
           @Override
           public void onPaymentDone(Transaction transaction, boolean b) {
-
+           Log.d("SOFTPOS", "onPaymentDone");
+           ReceiptFragment receiptFragment = new ReceiptFragment(transaction);
+           receiptFragment.show(getFragmentManager(), "Receipt");
           }
 
           @Override
           public void onOfflineDecline(PaymentFailedResult paymentFailedResult) {
-
+              Log.d("SOFTPOS", "onOfflineDecline");
           }
 
           @Override
           public void onCancel() {
-
+              Log.d("SOFTPOS", "onCancel");
           }
 
           @Override
           public void onError(Throwable throwable) {
-
+              Log.d("SOFTPOS", "onError");
           }
 
           @Override
           public void onTimeOut() {
-
+              Log.d("SOFTPOS", "onTimeOut");
           }
 
           @Override
           public void onSoftposError(SoftposErrorType softposErrorType, String s) {
-
+              Log.d("SOFTPOS", "onSoftposError");
           }
 
           @Override
           public void onIntentDataNotFound(IntentDataError intentDataError) {
-
+              Log.d("SOFTPOS", "onIntentDataNotFound");
           }
       });
 
