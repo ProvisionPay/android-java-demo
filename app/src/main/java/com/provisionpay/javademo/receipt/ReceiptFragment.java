@@ -55,7 +55,7 @@ public class ReceiptFragment extends DialogFragment {
 
         if (paymentResponse.getReceipt() != null && paymentResponse.getReceipt().getDetail() != null) {
             for (ReceiptDetail entry : paymentResponse.getReceipt().getDetail()) {
-                boolean isApproved = entry.getKey().equals("Status") && paymentResponse.getReceipt().a;
+                boolean isApproved = entry.getKey().equals("Status") && paymentResponse.getReceipt().getApproved();
                 list.add(new ReceiptRowItem(entry.getKey(), entry.getValue()));
             }
         }

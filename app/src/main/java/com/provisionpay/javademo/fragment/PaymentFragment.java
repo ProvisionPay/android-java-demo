@@ -15,7 +15,7 @@ import com.provisionpay.android.deeplinksdk.SoftposDeeplinkSdk;
 import com.provisionpay.android.deeplinksdk.SoftposDeeplinkSdkListener;
 import com.provisionpay.android.deeplinksdk.broadcastReceiver.BroadcastReceiverListener;
 import com.provisionpay.android.deeplinksdk.model.InitializeConfig;
-import com.provisionpay.android.deeplinksdk.model.IntentDataError;
+import com.provisionpay.android.deeplinksdk.model.IntentDataFlow;
 import com.provisionpay.android.deeplinksdk.model.PaymentFailedResult;
 import com.provisionpay.android.deeplinksdk.model.SoftposErrorType;
 import com.provisionpay.android.deeplinksdk.model.Transaction;
@@ -53,6 +53,11 @@ public class PaymentFragment extends Fragment{
         });
       SoftposDeeplinkSdk.Companion.subscribe(new SoftposDeeplinkSdkListener() {
           @Override
+          public void onIntentData(IntentDataFlow intentDataFlow, String s) {
+              Log.d("SOFTPOS", "onIntentData");
+          }
+
+          @Override
           public void onPaymentDone(Transaction transaction, boolean b) {
            Log.d("SOFTPOS", "onPaymentDone");
            ReceiptFragment receiptFragment = new ReceiptFragment(transaction);
@@ -84,10 +89,6 @@ public class PaymentFragment extends Fragment{
               Log.d("SOFTPOS", "onSoftposError");
           }
 
-          @Override
-          public void onIntentDataNotFound(IntentDataError intentDataError) {
-              Log.d("SOFTPOS", "onIntentDataNotFound");
-          }
       });
 
       SoftposDeeplinkSdk.Companion.registerBroadcastReceiver("your_packageID", new BroadcastReceiverListener() {
